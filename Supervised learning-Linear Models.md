@@ -38,5 +38,7 @@ Ridge regression and classification
 * Ridge Complexity: 與OLS相同O( Nsample * Nfeatures**2)
 * Setting the regularization parameter: leave-one-out Cross-Validation
 > Leave-one-out Cross-Validation: 將每個資料點輪流當成test，剩餘當成train，花費n-1倍的時間
+
 > K-fold cross validation: 資料隨機分成k組，每次拿一組當成test，剩餘組當成train
+
 > RidgeCV : 藉由一次用多個alpha來尋找最佳解
