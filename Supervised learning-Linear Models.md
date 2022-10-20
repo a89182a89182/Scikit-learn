@@ -43,9 +43,10 @@ Ridge regression and classification
 
 > RidgeCV : 藉由一次用多個alpha來尋找最佳解
 
-Lasso 
+Lasso (Least absolute shrinkage and selection operator)
 --
 * Lasso regression: 與Ridge相同，藉由增添 λΣθ 來避免(L1范数)
+* 通過L1范数在對參數進行約束的同時求得稀疏解。
 > Code:
     from sklearn import linear_model
     reg = linear_model.Lasso(alpha=0.1)
@@ -55,3 +56,15 @@ Lasso
 * Setting the regularization parameter: Using cross-validation
 * LassoLarsIC: 尋找最佳 alpha，並減少計算過程(從K+1 => 1)
 * Comparison with the regularization parameter of SVM
+
+Multi-task Lasso(過難，暫且只先了解概念)
+--
+* Lasso的豪华版，可以应用多任务回归。[https://blog.csdn.net/matrix_studio/article/details/121283779]
+* 與Lasso追求稀疏解不同，先假設是基於多任務（具體體現為添加一個損失）會帶給模型更好的性能。這是它的內核。
+* L21范数，即每一行的l2范數之和
+
+
+
+參考資料
+==
+[从sklearn学机器学习](https://blog.csdn.net/matrix_studio/category_11441770.html_)
