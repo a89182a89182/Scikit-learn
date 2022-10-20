@@ -26,7 +26,7 @@ Ordinary Least Squares(普通最小平方)
 
 Ridge regression and classification
 -- 
-* Ridge regression: 由於OLS造成的Overfitting，藉由增添 λΣθ² 來避免
+* Ridge regression: 由於OLS造成的Overfitting，藉由增添 λΣθ² 來避免(L2范数)
 > Code:
 
         reg = linear_model.Ridge(alpha=.5)
@@ -42,3 +42,16 @@ Ridge regression and classification
 > K-fold cross validation: 資料隨機分成k組，每次拿一組當成test，剩餘組當成train
 
 > RidgeCV : 藉由一次用多個alpha來尋找最佳解
+
+Lasso 
+--
+* Lasso regression: 與Ridge相同，藉由增添 λΣθ 來避免(L1范数)
+> Code:
+    from sklearn import linear_model
+    reg = linear_model.Lasso(alpha=0.1)
+    reg.fit([[0, 0], [1, 1]], [0, 1])   #  Lasso(alpha=0.1)
+    reg.predict([[1, 1]])               #  Array([0.8])
+  
+* Setting the regularization parameter: Using cross-validation
+* LassoLarsIC: 尋找最佳 alpha，並減少計算過程(從K+1 => 1)
+* Comparison with the regularization parameter of SVM
